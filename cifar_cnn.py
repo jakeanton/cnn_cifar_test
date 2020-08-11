@@ -7,16 +7,12 @@ import matplotlib.pyplot as plt
 training_data = training_data/255.0
 test_data = test_data/255.0
 
-#plt.figure()
-#plt.imshow(training_data[0], cmap=plt.cm.binary)
-#plt.show()
-
 model = models.Sequential()
-model.add(layers.Conv2D(filters=3,kernel_size=(3,3)))
+model.add(layers.Conv2D(filters=24,kernel_size=(3,3), activation='relu'))
 model.add(layers.MaxPooling2D(pool_size=(2,2),strides=2))
-model.add(layers.Conv2D(filters=3,kernel_size=(3,3)))
+model.add(layers.Conv2D(filters=48,kernel_size=(3,3), activation='relu'))
 model.add(layers.MaxPooling2D(pool_size=(2,2),strides=2))
-model.add(layers.Conv2D(filters=3,kernel_size=(3,3)))
+model.add(layers.Conv2D(filters=64,kernel_size=(3,3), activation='relu'))
 model.add(layers.Flatten())
 model.add(layers.Dense(64, activation='relu'))
 model.add(layers.Dense(10))
